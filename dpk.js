@@ -19,6 +19,5 @@ exports.deterministicPartitionKey = (event) => {
     return candidate
   }
   
-  const data = JSON.stringify(event);
-  return crypto.createHash("sha3-512").update(data).digest("hex");
+  return crypto.createHash("sha3-512").update(JSON.stringify(event)).digest("hex");
  };
