@@ -1,12 +1,13 @@
 const crypto = require("crypto");
 
+
+const TRIVIAL_PARTITION_KEY = "0";
+const MAX_PARTITION_KEY_LENGTH = 256;
+
 exports.deterministicPartitionKey = (event) => {
-  const TRIVIAL_PARTITION_KEY = "0";
   
   if (!event) return TRIVIAL_PARTITION_KEY;
   
-  const MAX_PARTITION_KEY_LENGTH = 256;
- 
   if (event.partitionKey) {
     const existingPartitionKey = (typeof event.partitionKey === "string") ? 
       event.partitionKey : 
