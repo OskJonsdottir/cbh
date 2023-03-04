@@ -17,7 +17,7 @@ You will be graded on the level of detail in each ticket, the clarity of the exe
 
 ## Your Breakdown Here
 
-###Task 1
+### Task 1
 Create a new table for the AgentCustomIds externalId of the agents by facility (there's a chance that the very same agent works in more than one facility
 and they use different custom ids for each of them). This is actually easier, probably, than changing the schema of the existing Agents table.
 The table should contain 3 columns,
@@ -28,7 +28,7 @@ The table should contain 3 columns,
 **Effort**: 5 scrum points if we need approval from some authority in the company that owns the database. 2 scrum points otherwise.
 
 
-###Task 2
+### Task 2
 Change the query in getShiftsByFacility to join not only the Agent table to the Shifts table to extract agent information but also the AgentCustomIds table
 to extract the customId used by the facility where the shift happened and include it as an extra field in the PDF generated.
 
@@ -37,7 +37,7 @@ to extract the customId used by the facility where the shift happened and includ
 **Effort**: 2 scrum points, this should be just changing the query to add the join (one line of code?) and adding an extra field to the PDF if it's present (another line of code), plus tests
 
 
-###Task 3
+### Task 3
 Gather information from some product guy in the company, or directly from the Facilities about how they plan to give us the customIds they use for the Agents.
 Will they prefer a RESTful API? Some tool to import CSV files exported from their database? Or some UI to enter these IDs manually one by one?
 
@@ -51,7 +51,7 @@ Will they prefer a RESTful API? Some tool to import CSV files exported from thei
 **Effort**: time-box this to 2 hours. We cannot get dragged into an endless discussion here, this should be for the product person to figure out first.
 If we go beyond the 2-hours, just leave it there and we skip the rest until there's clarity.
 
-###Task 4 (uncertain)
+### Task 4 (uncertain)
 Create a RESTful endpoint for Facilities to input the customId for each Agent that works with them. Payload is JSON, possibly with
 
 - firstName
@@ -74,7 +74,7 @@ our life so much easier.
 
 **Effort**: 8 scrum points.
 
-###Task 5 (uncertain)
+### Task 5 (uncertain)
 UI for the Facilities to input the information manually. This would need task 4 to be completed first. It should be possible for them to look up Agents by full name (or maybe SSN number?), and once they
 find the person in our system, input their customId for the person in question.
 
@@ -86,7 +86,7 @@ find the person in our system, input their customId for the person in question.
 **Effort**: 13 scrum points, especially if we need to involve the designers in this.
 
 
-###Task 6 (uncertain)
+### Task 6 (uncertain)
 Create an import script to read CSV files containing the full name of the agents and their customIds and import them into the database. Same info as in the 
 JSON payload for the endpoint in task 4, but in columns.
 
