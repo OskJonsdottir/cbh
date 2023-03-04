@@ -8,13 +8,14 @@ exports.deterministicPartitionKey = (event) => {
   const MAX_PARTITION_KEY_LENGTH = 256;
  
   if (event.partitionKey) {
-    let existingPartitionKey = event.partitionKey;
-    if (typeof existingPartitionKey !== "string") {
-      existingPartitionKey = JSON.stringify(existingPartitionKey);
-    }
+    const existingPartitionKey = (typeof event.partitionKey === "string") ? 
+      event.partitionKey : 
+      JSON.stringify(event.partitionKey);
+    
     if (existingPartitionKey.length <= MAX_PARTITION_KEY_LENGTH) {
       return existingPartitionKey;
     }
+    
     return crypto.createHash("sha3-512").update(existingPartitionKey).digest("hex");
   }
   
